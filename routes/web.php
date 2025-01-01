@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DepoController;
+use App\Http\Controllers\LandingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::any('/', [LandingController::class, 'landing'])->name('landing');
+Route::any('/login', [LandingController::class, 'login'])->name('login');
+Route::any('/logbook', [LandingController::class, 'logbook'])->name('logbook');
+
+Route::middleware(['auth.or.mahasiswa'])->group(function () {
+    Route::get('/depo', [DepoController::class, 'index'])->name('depo');
+    Route::get('/logout', [DepoController::class, 'logout'])->name('logout');
 });
