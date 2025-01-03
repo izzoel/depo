@@ -11,9 +11,10 @@
                                 <div class="card-title">
                                     <ul class="nav nav-pills" role="tablist">
                                         <li class="nav-item">
-                                            <button type="button" class="nav-link active bg-danger">
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#M_S_mahasiswa">
                                                 Kerusakan Alat
                                             </button>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -24,7 +25,9 @@
                                                 <th>Nama Alat</th>
                                                 <th class="col-2">Stok</th>
                                                 <th class="col-2">Lokasi</th>
-                                                <th class="col-3">Aksi</th>
+                                                <th class="col-2">Kondisi</th>
+                                                <th class="col-2">Status</th>
+                                                <th class="col-auto">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -52,6 +55,8 @@
                                         </tr>
                                         @endforeach --}}
                                             <tr>
+                                                <td></td>
+                                                <td></td>
                                                 <td></td>
                                                 <td></td>
                                                 <td></td>

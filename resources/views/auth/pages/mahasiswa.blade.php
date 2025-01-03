@@ -26,7 +26,7 @@
                                                 <th class="text-start" data-priority="1">NIM</th>
                                                 <th class="text-start">Nama</th>
                                                 <th class="text-start">Prodi</th>
-                                                <th class="text-start" data-priority="2">Aksi</th>
+                                                <th class="text-start col-auto" data-priority="2">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -36,7 +36,7 @@
                                                     <td class="text-start">{{ $mahasiswa->nim }}</td>
                                                     <td class="text-start">{{ $mahasiswa->nama }}</td>
                                                     <td class="text-start">{{ $mahasiswa->prodi }}</td>
-                                                    <td class="text-center">
+                                                    <td class="text-center px-0">
                                                         <a type="button" class="U_B_Mahasiswa text-info" data-nim="#M_U_mahasiswa-{{ $mahasiswa->nim }}">
                                                             <span class="tf-icons bx bx-edit"></span>edit
                                                         </a>

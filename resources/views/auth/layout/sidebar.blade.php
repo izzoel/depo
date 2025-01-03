@@ -63,7 +63,7 @@
          </li>
 
          <li class="menu-header small text-uppercase">
-             <span class="menu-header-text">Data</span>
+             <span class="menu-header-text">Menu Utama</span>
          </li>
          <!-- Layouts -->
          <li class="menu-item {{ request()->segment(1) == 'data' ? 'active open' : '' }}">
