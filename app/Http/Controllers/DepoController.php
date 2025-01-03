@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -12,9 +13,30 @@ class DepoController extends Controller
      */
     public function index()
     {
-        //
+        return view('auth.depo');
     }
 
+    public function alat()
+    {
+        return view('auth.pages.alat');
+    }
+    public function cair()
+    {
+        return view('auth.pages.cair');
+    }
+    public function kerusakan()
+    {
+        return view('auth.pages.kerusakan');
+    }
+    public function mahasiswa()
+    {
+        $mahasiswas = Mahasiswa::all();
+        return view('auth.pages.mahasiswa', compact('mahasiswas'));
+    }
+    public function padat()
+    {
+        return view('auth.pages.padat');
+    }
 
     public function logout()
     {

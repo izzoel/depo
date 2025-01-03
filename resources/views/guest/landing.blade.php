@@ -28,17 +28,18 @@
 <body>
     <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
         <div class="container">
-            <div class="hero-container d-flex flex-column justify-content-center" data-aos="fade-in">
-                <h1 class="">
-                    <a href="" id="admin" style="text-decoration: none;color: #fff;">Sistem</a>
-                    Informasi Inventaris Depo
+            <div class="hero-container d-flex flex-column justify-content-start" data-aos="fade-in">
+                <h1 class="text-left">
+                    <a href="" id="admin" style="text-decoration: none;color: #fff;font-size: 2.5rem;">Sistem Informasi Inventaris Depo</a>
                 </h1>
-                <p>Cek Persediaan <span class="typed" data-typed-items="Bahan Cair, Bahan Padat, Alat"></span></p>
+                <p class="text-left" style="font-size: 1.3rem;">Cek Persediaan <span class="typed" data-typed-items="Bahan Cair, Bahan Padat, Alat"></span></p>
 
-                <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-toolbar justify-content-start" role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group me-2" role="group" aria-label="First group">
-                        <a id="user" class="btn btn-lg btn-warning  d-flex justify-content-center" style="font-size: 1.5rem; padding: 1rem 2rem; align-self: center;"
-                            role="button" data-aos="fade-left"><b><i class="bi bi-journal-richtext"></i> Logbook</b></a>
+                        <a id="user" class="btn btn-lg btn-warning d-flex justify-content-start align-items-center" style="font-size: 1.5rem; padding: 1rem 2rem;"
+                            role="button" data-aos="fade-left">
+                            <b><i class="bi bi-journal-richtext"></i> Logbook</b>
+                        </a>
                     </div>
                 </div>
             </div>
