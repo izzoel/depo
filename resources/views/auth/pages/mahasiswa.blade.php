@@ -22,7 +22,7 @@
                                     <table id="mahasiswa" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th class="text-start">#</th>
+                                                <th class="text-start" data-priority="3">#</th>
                                                 <th class="text-start" data-priority="1">NIM</th>
                                                 <th class="text-start">Nama</th>
                                                 <th class="text-start">Prodi</th>

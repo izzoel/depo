@@ -8,7 +8,7 @@
           });
       })
 
-      $(".U_B_Mahasiswa").click(function() {
+      $(document).on('click', '.U_B_Mahasiswa', function() {
           let nim = $(this).data("nim").split('-').pop();
 
           $(".modalUpdate").attr("id", "M_U_mahasiswa-" + nim);
@@ -36,8 +36,7 @@
                   this.value = this.value.toUpperCase();
               });
           });
-      })
-
+      });
 
 
       $(".D_B_Mahasiswa").click(function() {
@@ -46,21 +45,5 @@
           $(".modalDelete").attr("id", "M_D_mahasiswa-" + nim);
           $("#M_D_mahasiswa-" + nim).modal('show');
           $("#D_route").attr('action', "/data/mahasiswa/destroy/" + nim);
-
-
-          //   alert($(".modalDelete").attr("id"));
       })
-
-      //   $("#M_D_mahasiswa").on('show.bs.modal', function(e) {
-      //       $("#D_route").click(function() {
-      //           alert("tes2");
-      //       })
-      //   })
-
-
-
-
-      //       let nim = $(this).data("nim").split('-').pop();
-      //       alert(nim)
-      //       //   $("#D_route").attr('action', "/data/mahasiswa/destroy/" + nim);
   </script>

@@ -61,6 +61,10 @@
                  <div data-i18n="Analytics">Dashboard</div>
              </a>
          </li>
+
+         <li class="menu-header small text-uppercase">
+             <span class="menu-header-text">Data</span>
+         </li>
          <!-- Layouts -->
          <li class="menu-item {{ request()->segment(1) == 'data' ? 'active open' : '' }}">
              <a href="javascript:void(0);" class="menu-link menu-toggle">
