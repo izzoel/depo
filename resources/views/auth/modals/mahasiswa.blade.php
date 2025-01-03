@@ -78,6 +78,7 @@
                                 @csrf
                                 <div class="mb-3">
                                     <label for="file" class="form-label">File Upload</label>
+                                    <span class="text-muted" style="font-size: .7rem; font-style: italic"> (data yang sama akan ditimpa)</span>
                                     <input class="form-control" type="file" id="file" name="file" />
                                 </div>
                                 <a href="{{ asset('Template Import -- Mahasiswa.csv') }}">
