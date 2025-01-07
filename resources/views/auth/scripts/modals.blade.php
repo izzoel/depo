@@ -8,7 +8,7 @@
           });
       })
 
-      $(document).on('click', '.U_B_Mahasiswa', function() {
+      $(document).on('click', '.U_B_mahasiswa', function() {
           let nim = $(this).data("nim").split('-').pop();
 
           $(".modalUpdate").attr("id", "M_U_mahasiswa-" + nim);
@@ -38,12 +38,34 @@
           });
       });
 
-
-      $(".D_B_Mahasiswa").click(function() {
+      $(".D_B_mahasiswa").click(function() {
           let nim = $(this).data("nim");
 
           $(".modalDelete").attr("id", "M_D_mahasiswa-" + nim);
           $("#M_D_mahasiswa-" + nim).modal('show');
           $("#D_route").attr('action', "/data/mahasiswa/destroy/" + nim);
+      })
+
+      $(document).on('click', '.U_B_kerusakan', function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalUpdate").attr("id", "M_U_kerusakan-" + id);
+          $("#M_U_kerusakan-" + id).modal('show');
+          $("#U_route").attr('action', "/data/kerusakan/update/" + id);
+
+          $.get("/data/kerusakan/show/" + id, function(data) {
+              $("#U_nama").val(data.nama);
+              $("#U_lokasi").val(data.lokasi).prop('selected', true);
+              $("#U_kondisi").val(data.kondisi);
+              $("#U_status").val(data.status);
+          });
+      });
+
+      $(".D_B_kerusakan").click(function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalDelete").attr("id", "M_D_kerusakan-" + id);
+          $("#M_D_kerusakan-" + id).modal('show');
+          $("#D_route").attr('action', "/data/kerusakan/destroy/" + id);
       })
   </script>

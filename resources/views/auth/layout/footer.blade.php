@@ -27,6 +27,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
 <script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.1.8/b-3.2.0/b-html5-3.2.0/r-3.0.3/datatables.min.js"></script>
+
 @include('auth.scripts.datatables')
 @include('auth.scripts.toasts')
 
@@ -62,7 +63,7 @@
 </script>
 <script>
     function checkInactivity() {
-        fetch("{{ url('/check-inactivity') }}", {
+        fetch("{{ url('/afk') }}", {
                 method: 'GET',
                 headers: {
                     'X-Requested-With': 'XMLHttpRequest'

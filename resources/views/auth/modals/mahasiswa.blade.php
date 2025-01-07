@@ -117,7 +117,7 @@
                                 <input type="text" class="form-control" id="U_nim" name="nim" placeholder="4820101230000" required />
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="nama">Nama<span class="text-danger">*</span></label>
+                                <label class="form-label" for="U_nama">Nama<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="U_nama" name="nama" placeholder="John Doe" required />
                             </div>
                             <div class="mb-3">

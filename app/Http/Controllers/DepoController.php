@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kerusakan;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,7 +27,8 @@ class DepoController extends Controller
     }
     public function kerusakan()
     {
-        return view('auth.pages.kerusakan');
+        $kerusakans = Kerusakan::all();
+        return view('auth.pages.kerusakan', compact('kerusakans'));
     }
     public function mahasiswa()
     {

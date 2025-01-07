@@ -31,7 +31,6 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        // $date = date('d/m/Y', strtotime(str_replace('/', '-', $request->tanggal_lahir)));
         Mahasiswa::create([
             'nim' => $request->nim,
             'nama' => $request->nama,
@@ -56,7 +55,6 @@ class MahasiswaController extends Controller
     public function show(Mahasiswa $mahasiswa, $nim)
     {
         $mahasiswa = Mahasiswa::where('nim', $nim)->first();
-
         return response()->json($mahasiswa);
     }
 

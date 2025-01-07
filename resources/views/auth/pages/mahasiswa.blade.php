@@ -37,13 +37,13 @@
                                                     <td class="text-start">{{ $mahasiswa->nama }}</td>
                                                     <td class="text-start">{{ $mahasiswa->prodi }}</td>
                                                     <td class="text-center px-0">
-                                                        <a type="button" class="U_B_Mahasiswa text-info" data-nim="#M_U_mahasiswa-{{ $mahasiswa->nim }}">
+                                                        <a type="button" class="U_B_mahasiswa text-info" data-nim="#M_U_mahasiswa-{{ $mahasiswa->nim }}">
                                                             <span class="tf-icons bx bx-edit"></span>edit
                                                         </a>
 
                                                         <span class="mx-1">|</span>
 
-                                                        <a type="button" class="D_B_Mahasiswa text-danger" data-nim="{{ $mahasiswa->nim }}">
+                                                        <a type="button" class="D_B_mahasiswa text-danger" data-nim="{{ $mahasiswa->nim }}">
                                                             <span class="tf-icons bx bxs-x-square"></span>
                                                         </a>
                                                     </td>
