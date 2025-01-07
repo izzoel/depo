@@ -11,52 +11,43 @@
                                 <div class="card-title">
                                     <ul class="nav nav-pills" role="tablist">
                                         <li class="nav-item">
-                                            <button type="button" class="nav-link active">
+                                            <button type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#M_S_alat">
                                                 Alat
                                             </button>
+
+                                            @include('auth.modals.alat')
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="card-text">
-                                    <table id="alat" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                    <table id="depoAlat" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>Nama Alat</th>
-                                                <th class="col-2">Stok</th>
-                                                <th class="col-2">Lokasi</th>
-                                                <th class="col-3">Aksi</th>
+                                                <th data-priority="1">Nama Alat</th>
+                                                <th data-priority="3">Stok</th>
+                                                <th>Lokasi</th>
+                                                <th class="col-auto" data-priority="2">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {{-- @foreach ($cairs as $cair)
-                                                            <tr>
-                                                                <td>{{ $cair->nama }}</td>
-                                                                <td>{{ $cair->stok . ' ' . $cair->satuan }}</td>
-                                                                <td>{{ $cair->lokasi }}</td>
-                                                                <td>
-                                                                    <button type="button" class="btn btn-warning btn-sm ambilModal me-3" data-id="{{ $cair->id }}"
-                                                                        {{ $cair->stok <= 0 ? 'disabled' : '' }}>
-                                                                        <i class="bx bxs-donate-blood"></i> Ambil
-                                                                    </button>
+                                            @foreach ($persediaans as $persediaan)
+                                                <tr>
+                                                    <td>{{ $persediaan->nama }}</td>
+                                                    <td>{{ $persediaan->stok }}</td>
+                                                    <td>{{ $persediaan->lokasi }}</td>
+                                                    <td class="text-center px-0">
+                                                        <a type="button" class="U_B_alat text-info" data-id="#M_U_alat-{{ $persediaan->id }}">
+                                                            <span class="tf-icons bx bx-edit"></span>edit
+                                                        </a>
 
-                                                                    <button type="button" class="btn btn-success btn-sm setorModal me-3" data-id="{{ $cair->id }}">
-                                                                        <i class="bx bxs-archive-in"></i> Setor
-                                                                    </button>
+                                                        <span class="mx-1">|</span>
 
-                                                                    @auth
-                                                                        <button type="button" class="btn btn-secondary btn-sm settingModal" data-id="{{ $cair->id }}">
-                                                                            <i class='bx bx-cog'></i>
-                                                                        </button>
-                                                                    @endauth
-                                                                </td>
-                                                            </tr>
-                                                        @endforeach --}}
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                                        <a type="button" class="D_B_alat text-danger" data-id="M_D_alat-{{ $persediaan->id }}">
+                                                            <span class="tf-icons bx bxs-x-square"></span>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
 
                                         </tbody>
                                     </table>

@@ -12,46 +12,44 @@
             </div>
             <div class="modal-body">
                 <div class="nav-align-top mb-4">
-                    <div class="tab-pane fade show active" id="nav-mahasiswa" role="tabpanel">
-                        <form action="{{ route('kerusakan_store') }}" method="POST">
-                            @csrf
-                            <div class="mb-3">
-                                <label class="form-label" for="lapor_alat">Nama Alat<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="lapor_alat" name="nama" placeholder="Lampu Spektro T60 D2" required />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="lokasi">Lokasi<span class="text-danger">*</span></label>
-                                <select class="form-select" id="lokasi" name="lokasi" required>
-                                    <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                    <option value="Lab. Bahan Alam">Lab. Bahan Alam</option>
-                                    <option value="Lab. Batra">Lab. Batra</option>
-                                    <option value="Lab. Kimia">Lab. Kimia</option>
-                                    <option value="Lab. Kimia Analis">Lab. Kimia Analis</option>
-                                    <option value="Lab. Kimia Farmasi">Lab. Kimia Farmasi</option>
-                                    <option value="Lab. Teknologi Sediaan Farmasi">Lab. Teknologi Sediaan Farmasi</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="kondisi">Kondisi</label><span class="text-danger">*</span></label>
-                                <textarea class="form-control" id="kondisi" name="kondisi" rows="2" placeholder="masa pakai sudah hampir habis"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="status">Status<span class="text-danger">*</span></label>
-                                <select class="form-select" id="status" name="status" required>
-                                    <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                    <option value="Pembelian">Pembelian</option>
-                                    <option value="Pengajuan">Pengajuan</option>
-                                    <option value="Peninjauan">Peninjauan</option>
-                                    <option value="Perbaikan">Perbaikan</option>
-                                    <option value="Rusak Total">Rusak Total</option>
-                                    <option value="Selesai">Selesai</option>
-                                </select>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">Simpan</button>
-                            </div>
-                        </form>
-                    </div>
+                    <form action="{{ route('kerusakan_store') }}" method="POST">
+                        @csrf
+                        <div class="mb-3">
+                            <label class="form-label" for="lapor_alat">Nama Alat<span class="text-danger">*</span></label>
+                            <input type="text" class="form-control" id="lapor_alat" name="nama" placeholder="Lampu Spektro T60 D2" required />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="lokasi">Lokasi<span class="text-danger">*</span></label>
+                            <select class="form-select" id="lokasi" name="lokasi" required>
+                                <option value="" class="text-muted" selected disabled>-- Pilih --</option>
+                                <option value="Lab. Bahan Alam">Lab. Bahan Alam</option>
+                                <option value="Lab. Batra">Lab. Batra</option>
+                                <option value="Lab. Kimia">Lab. Kimia</option>
+                                <option value="Lab. Kimia Analis">Lab. Kimia Analis</option>
+                                <option value="Lab. Kimia Farmasi">Lab. Kimia Farmasi</option>
+                                <option value="Lab. Teknologi Sediaan Farmasi">Lab. Teknologi Sediaan Farmasi</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="kondisi">Kondisi</label><span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="kondisi" name="kondisi" rows="2" placeholder="masa pakai sudah hampir habis"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="status">Status<span class="text-danger">*</span></label>
+                            <select class="form-select" id="status" name="status" required>
+                                <option value="" class="text-muted" selected disabled>-- Pilih --</option>
+                                <option value="Pembelian">Pembelian</option>
+                                <option value="Pengajuan">Pengajuan</option>
+                                <option value="Peninjauan">Peninjauan</option>
+                                <option value="Perbaikan">Perbaikan</option>
+                                <option value="Rusak Total">Rusak Total</option>
+                                <option value="Selesai">Selesai</option>
+                            </select>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

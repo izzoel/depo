@@ -62,9 +62,9 @@ class KerusakanController extends Controller
     {
         Kerusakan::where('id', $id)->update([
             'nama' => $request->nama,
+            'stok' => $request->stok,
             'lokasi' => $request->lokasi,
-            'kondisi' => $request->kondisi,
-            'status' => $request->status,
+            'jenis' => $request->jenis,
         ]);
 
         return redirect()->back()->with('success', 'Laporan berhasil diperbarui');

@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alat;
 use App\Models\Kerusakan;
 use App\Models\Mahasiswa;
+use App\Models\Persediaan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DepoController extends Controller
 {
+    protected $persediaans;
+
+    public function __construct(Request $request)
+    {
+        $jenis = $request->segment(2);
+        $this->persediaans = Persediaan::where('jenis', $jenis)->get();
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -19,11 +29,11 @@ class DepoController extends Controller
 
     public function alat()
     {
-        return view('auth.pages.alat');
+        return view('auth.pages.alat', ['persediaans' => $this->persediaans]);
     }
     public function cair()
     {
-        return view('auth.pages.cair');
+        return view('auth.pages.alat', ['persediaans' => $this->persediaans]);
     }
     public function kerusakan()
     {

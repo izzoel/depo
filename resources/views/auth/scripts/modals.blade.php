@@ -68,4 +68,45 @@
           $("#M_D_kerusakan-" + id).modal('show');
           $("#D_route").attr('action', "/data/kerusakan/destroy/" + id);
       })
+
+      $("#M_S_alat").on('show.bs.modal', function(e) {
+          $("#stok").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+
+      $(document).on('click', '.U_B_alat', function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalUpdate").attr("id", "M_U_alat-" + id);
+          $("#M_U_alat-" + id).modal('show');
+          $("#U_route").attr('action', "/data/alat/update/" + id);
+
+          $.get("/data/alat/show/" + id, function(data) {
+              $("#U_nama").val(data.nama);
+              $("#U_stok").val(data.stok);
+              $("#U_lokasi").val(data.lokasi);
+              $("#U_jenis").val(data.jenis);
+          });
+
+          $("#U_stok").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+
+      $(".D_B_alat").click(function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalDelete").attr("id", "M_D_alat-" + id);
+          $("#M_D_alat-" + id).modal('show');
+          $("#D_route").attr('action', "/data/alat/destroy/" + id);
+      })
   </script>

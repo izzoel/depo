@@ -2,10 +2,12 @@
 
 use App\Models\Kerusakan;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AlatController;
 use App\Http\Controllers\DepoController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\KerusakanController;
 use App\Http\Controllers\MahasiswaController;
+use App\Http\Controllers\PersediaanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +43,12 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::post('/data/kerusakan/store', [KerusakanController::class, 'store'])->name('kerusakan_store');
     Route::put('/data/kerusakan/update/{id}', [KerusakanController::class, 'update'])->name('kerusakan_update');
     Route::delete('/data/kerusakan/destroy/{id}', [KerusakanController::class, 'destroy'])->name('kerusakan_destroy');
+
+    Route::get('/data/alat/show/{id}', [PersediaanController::class, 'show'])->name('alat_show');
+    Route::post('/data/alat/store', [PersediaanController::class, 'store'])->name('alat_store');
+    Route::post('/data/alat/import', [PersediaanController::class, 'import'])->name('persediaan_import');
+    Route::put('/data/alat/update/{id}', [PersediaanController::class, 'update'])->name('alat_update');
+    Route::delete('/data/alat/destroy/{id}', [PersediaanController::class, 'destroy'])->name('alat_destroy');
 
     Route::get('/afk', function () {
         return response()->json(['status' => 'active']);

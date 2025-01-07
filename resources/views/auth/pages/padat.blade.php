@@ -18,7 +18,7 @@
                                     </ul>
                                 </div>
                                 <div class="card-text">
-                                    <table id="padat" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                    <table id="depoPadat" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th>Nama Bahan Padat</th>
