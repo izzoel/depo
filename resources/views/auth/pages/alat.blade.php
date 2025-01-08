@@ -32,8 +32,8 @@
                                         <tbody>
                                             @foreach ($persediaans as $persediaan)
                                                 <tr>
-                                                    <td>{{ $persediaan->nama }}</td>
-                                                    <td>{{ $persediaan->stok }}</td>
+                                                    <td>{{ $persediaan->nama }} </td>
+                                                    <td>{{ $persediaan->stok . ' ' . $persediaan->satuan }}</td>
                                                     <td>{{ $persediaan->lokasi }}</td>
                                                     <td class="text-center px-0">
                                                         <a type="button" class="U_B_alat text-info" data-id="#M_U_alat-{{ $persediaan->id }}">

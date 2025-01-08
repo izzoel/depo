@@ -89,6 +89,7 @@
           $.get("/data/alat/show/" + id, function(data) {
               $("#U_nama").val(data.nama);
               $("#U_stok").val(data.stok);
+              $("#U_satuan").val(data.satuan);
               $("#U_lokasi").val(data.lokasi);
               $("#U_jenis").val(data.jenis);
           });

@@ -35,6 +35,7 @@ class PersediaanController extends Controller
         Persediaan::create([
             'nama' => $request->nama,
             'stok' => $request->stok,
+            'satuan' => $request->satuan,
             'lokasi' => $request->lokasi,
             'jenis' => $jenis,
         ]);

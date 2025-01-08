@@ -39,6 +39,13 @@
                                     <input type="text" class="form-control" id="stok" name="stok" rows="2" placeholder="200"></input>
                                 </div>
                                 <div class="mb-3">
+                                    <label class="form-label" for="satuan">Satuan</label><span class="text-danger">*</span></label>
+                                    <select class="form-select" id="satuan" name="satuan" required>
+                                        <option value="" class="text-muted" selected disabled>-- Pilih --</option>
+                                        <option value="pcs">pcs</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
                                     <label class="form-label" for="lokasi">Lokasi<span class="text-danger">*</span></label>
                                     <select class="form-select" id="lokasi" name="lokasi" required>
                                         <option value="" class="text-muted" selected disabled>-- Pilih --</option>
@@ -105,6 +112,13 @@
                             <div class="mb-3">
                                 <label class="form-label" for="U_stok">Stok<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="U_stok" name="stok" placeholder="200" required />
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="U_satuan">Satuan</label><span class="text-danger">*</span></label>
+                                <select class="form-select" id="U_satuan" name="satuan" required>
+                                    <option value="" class="text-muted" selected disabled>-- Pilih --</option>
+                                    <option value="pcs">pcs</option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="U_lokasi">Lokasi<span class="text-danger">*</span></label>

@@ -18,6 +18,7 @@ class Persediaan extends Model
     protected $fillable = [
         'nama',
         'stok',
+        'satuan',
         'lokasi',
         'jenis',
     ];
