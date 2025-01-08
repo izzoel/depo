@@ -37,7 +37,7 @@ class DepoController extends Controller
     }
     public function padat()
     {
-        return view('auth.pages.padat');
+        return view('auth.pages.padat', ['persediaans' => $this->persediaans]);
     }
     public function kerusakan()
     {

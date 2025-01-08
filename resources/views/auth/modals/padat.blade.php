@@ -3,18 +3,18 @@
 @endif
 
 
-<div class="modal fade" id="M_S_cair" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="M_S_padat" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Cair</h5>
+                <h5 class="modal-title">Tambah Padat</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="nav-align-top mb-4">
                     <ul class="nav nav-tabs nav-fill" role="tablist">
                         <li class="nav-item">
-                            <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#nav-cair" aria-controls="nav-cair"
+                            <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab" data-bs-target="#nav-padat" aria-controls="nav-padat"
                                 aria-selected="true">
                                 <i class="tf-icons bx bx-pencil"></i> Input
                             </button>
@@ -27,12 +27,12 @@
                         </li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane fade show active" id="nav-cair" role="tabpanel">
-                            <form action="{{ route('cair_store') }}" method="POST">
+                        <div class="tab-pane fade show active" id="nav-padat" role="tabpanel">
+                            <form action="{{ route('padat_store') }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <label class="form-label" for="depo_cair">Nama Bahan<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="depo_cair" name="nama" placeholder="Alkohol" required />
+                                    <label class="form-label" for="depo_padat">Nama Bahan<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="depo_padat" name="nama" placeholder="Albumin" required />
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="stok">Stok</label><span class="text-danger">*</span></label>
@@ -58,7 +58,7 @@
                                     </select>
                                 </div>
 
-                                <input type="hidden" name="jenis" value="cair">
+                                <input type="hidden" name="jenis" value="padat">
 
                                 <div class="d-flex justify-content-end">
                                     <button type="submit" class="btn btn-primary">Simpan</button>
@@ -92,7 +92,7 @@
 </div>
 
 
-<div class="modal modalUpdate fade" id="M_U_cair" tabindex="-1" aria-hidden="true">
+<div class="modal modalUpdate fade" id="M_U_padat" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -101,13 +101,13 @@
             </div>
             <div class="modal-body">
                 <div class="nav-align-top mb-4">
-                    <div class="tab-pane fade show active" id="nav-cair" role="tabpanel">
+                    <div class="tab-pane fade show active" id="nav-padat" role="tabpanel">
                         <form id="U_route" action="" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
                                 <label class="form-label" for="U_nama">Nama<span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="U_nama" name="nama" placeholder="Alkohol" required />
+                                <input type="text" class="form-control" id="U_nama" name="nama" placeholder="Albumin" required />
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="U_stok">Stok<span class="text-danger">*</span></label>
@@ -153,11 +153,11 @@
 </div>
 
 
-<div class="modal modalDelete fade" id="M_D_cair" tabindex="-1" aria-hidden="true">
+<div class="modal modalDelete fade" id="M_D_padat" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="delete_cair">Konfirmasi Hapus</h5>
+                <h5 class="modal-title" id="delete_padat">Konfirmasi Hapus</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -174,7 +174,7 @@
                 <form id="D_route" action="" method="POST">
                     @csrf
                     @method('DELETE')
-                    <input type="hidden" name="jenis" value="cair">
+                    <input type="hidden" name="jenis" value="padat">
                     <button type="submit" class="btn btn-danger">Hapus</button>
                 </form>
             </div>

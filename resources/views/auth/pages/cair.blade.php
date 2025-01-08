@@ -23,7 +23,7 @@
                                     <table id="depoCair" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th data-priority="1">Nama Alat</th>
+                                                <th data-priority="1">Nama Bahan</th>
                                                 <th data-priority="3">Stok</th>
                                                 <th>Lokasi</th>
                                                 <th class="col-auto" data-priority="2">Aksi</th>

@@ -14,11 +14,16 @@ class PersediaanImport implements ToModel
      */
     public function model(array $row)
     {
-        return new Persediaan([
-            'nama' => $row[0],
-            'stok' => $row[1],
-            'lokasi' => $row[2],
-            'jenis' => $row[3],
-        ]);
+        return Persediaan::updateOrCreate(
+            [
+                'nama' => $row[0],
+            ],
+            [
+                'stok' => $row[1],
+                'satuan' => $row[2],
+                'lokasi' => $row[3],
+                'jenis' => $row[4]
+            ]
+        );
     }
 }

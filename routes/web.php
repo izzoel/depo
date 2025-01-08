@@ -56,6 +56,12 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::put('/data/cair/update/{id}', [PersediaanController::class, 'update'])->name('cair_update');
     Route::delete('/data/cair/destroy/{id}', [PersediaanController::class, 'destroy'])->name('cair_destroy');
 
+    Route::get('/data/padat/show/{id}', [PersediaanController::class, 'show'])->name('padat_show');
+    Route::post('/data/padat/store', [PersediaanController::class, 'store'])->name('padat_store');
+    Route::post('/data/padat/import', [PersediaanController::class, 'import'])->name('persediaan_import');
+    Route::put('/data/padat/update/{id}', [PersediaanController::class, 'update'])->name('padat_update');
+    Route::delete('/data/padat/destroy/{id}', [PersediaanController::class, 'destroy'])->name('padat_destroy');
+
     Route::get('/afk', function () {
         return response()->json(['status' => 'active']);
     })->middleware('inactivity.logout');
