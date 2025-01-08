@@ -110,4 +110,46 @@
           $("#M_D_alat-" + id).modal('show');
           $("#D_route").attr('action', "/data/alat/destroy/" + id);
       })
+
+      $("#M_S_cair").on('show.bs.modal', function(e) {
+          $("#stok").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+
+      $(document).on('click', '.U_B_cair', function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalUpdate").attr("id", "M_U_cair-" + id);
+          $("#M_U_cair-" + id).modal('show');
+          $("#U_route").attr('action', "/data/cair/update/" + id);
+
+          $.get("/data/cair/show/" + id, function(data) {
+              $("#U_nama").val(data.nama);
+              $("#U_stok").val(data.stok);
+              $("#U_satuan").val(data.satuan);
+              $("#U_lokasi").val(data.lokasi);
+              $("#U_jenis").val(data.jenis);
+          });
+
+          $("#U_stok").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+
+      $(".D_B_cair").click(function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalDelete").attr("id", "M_D_cair-" + id);
+          $("#M_D_cair-" + id).modal('show');
+          $("#D_route").attr('action', "/data/cair/destroy/" + id);
+      })
   </script>

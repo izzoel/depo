@@ -31,7 +31,11 @@ class PersediaanController extends Controller
     public function store(Request $request)
     {
         $jenis = $request->jenis;
-        $pesan = ucfirst($jenis) . " berhasil ditambahkan";
+        if ($jenis == 'alat') {
+            $pesan = ucfirst($jenis) . " berhasil ditambahkan";
+        } else {
+            $pesan = "Bahan " . ucfirst($jenis) . " berhasil ditambahkan";
+        }
         Persediaan::create([
             'nama' => $request->nama,
             'stok' => $request->stok,
@@ -72,7 +76,11 @@ class PersediaanController extends Controller
     public function update(Request $request, Persediaan $persediaan, $id)
     {
         $jenis = $request->jenis;
-        $pesan = ucfirst($jenis) . " berhasil ditambahkan";
+        if ($jenis == 'alat') {
+            $pesan = ucfirst($jenis) . " berhasil ditambahkan";
+        } else {
+            $pesan = "Bahan " . ucfirst($jenis) . " berhasil ditambahkan";
+        }
 
         Persediaan::where('id', $id)->update([
             'nama' => $request->nama,
@@ -90,7 +98,11 @@ class PersediaanController extends Controller
     public function destroy(Request $request, Persediaan $persediaan, $id)
     {
         $jenis = $request->jenis;
-        $pesan = ucfirst($jenis) . " berhasil dihapus";
+        if ($jenis == 'alat') {
+            $pesan = ucfirst($jenis) . " berhasil dihapus";
+        } else {
+            $pesan = "Bahan " . ucfirst($jenis) . " berhasil dihapus";
+        }
         Persediaan::where('id', $id)->delete();
         return redirect()->back()->with('success', $pesan);
     }

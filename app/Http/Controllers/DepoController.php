@@ -33,7 +33,11 @@ class DepoController extends Controller
     }
     public function cair()
     {
-        return view('auth.pages.alat', ['persediaans' => $this->persediaans]);
+        return view('auth.pages.cair', ['persediaans' => $this->persediaans]);
+    }
+    public function padat()
+    {
+        return view('auth.pages.padat');
     }
     public function kerusakan()
     {
@@ -45,10 +49,7 @@ class DepoController extends Controller
         $mahasiswas = Mahasiswa::all();
         return view('auth.pages.mahasiswa', compact('mahasiswas'));
     }
-    public function padat()
-    {
-        return view('auth.pages.padat');
-    }
+
 
     public function logout()
     {
