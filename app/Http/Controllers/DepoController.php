@@ -2,21 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Alat;
 use App\Models\Kerusakan;
 use App\Models\Mahasiswa;
 use App\Models\Persediaan;
+use App\Models\Laboratorium;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class DepoController extends Controller
 {
     protected $persediaans;
+    protected $laboratoriums;
 
     public function __construct(Request $request)
     {
         $jenis = $request->segment(2);
         $this->persediaans = Persediaan::where('jenis', $jenis)->get();
+        $this->laboratoriums = Laboratorium::all();
     }
 
     /**
@@ -29,25 +31,37 @@ class DepoController extends Controller
 
     public function alat()
     {
-        return view('auth.pages.alat', ['persediaans' => $this->persediaans]);
+        $persediaans = $this->persediaans;
+        $laboratoriums = $this->laboratoriums;
+        return view('auth.pages.alat', compact('persediaans', 'laboratoriums'));
     }
     public function cair()
     {
-        return view('auth.pages.cair', ['persediaans' => $this->persediaans]);
+        $persediaans = $this->persediaans;
+        $laboratoriums = $this->laboratoriums;
+        return view('auth.pages.cair', compact('persediaans', 'laboratoriums'));
     }
     public function padat()
     {
-        return view('auth.pages.padat', ['persediaans' => $this->persediaans]);
+        $persediaans = $this->persediaans;
+        $laboratoriums = $this->laboratoriums;
+        return view('auth.pages.padat', compact('persediaans', 'laboratoriums'));
     }
     public function kerusakan()
     {
         $kerusakans = Kerusakan::all();
-        return view('auth.pages.kerusakan', compact('kerusakans'));
+        $laboratoriums = $this->laboratoriums;
+        return view('auth.pages.kerusakan', compact('kerusakans', 'laboratoriums'));
     }
     public function mahasiswa()
     {
         $mahasiswas = Mahasiswa::all();
         return view('auth.pages.mahasiswa', compact('mahasiswas'));
+    }
+    public function laboratorium()
+    {
+        $laboratoriums = Laboratorium::all();
+        return view('auth.pages.laboratorium', compact('laboratoriums'));
     }
 
 

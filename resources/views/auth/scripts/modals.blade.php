@@ -6,6 +6,7 @@
                   this.value = this.value.toUpperCase();
               });
           });
+
       })
 
       $(document).on('click', '.U_B_mahasiswa', function() {
@@ -90,7 +91,7 @@
               $("#U_nama").val(data.nama);
               $("#U_stok").val(data.stok);
               $("#U_satuan").val(data.satuan);
-              $("#U_lokasi").val(data.lokasi);
+              $("#U_lokasi").val(data.lokasi).prop('selected', true);
               $("#U_jenis").val(data.jenis);
           });
 
@@ -132,7 +133,7 @@
               $("#U_nama").val(data.nama);
               $("#U_stok").val(data.stok);
               $("#U_satuan").val(data.satuan);
-              $("#U_lokasi").val(data.lokasi);
+              $("#U_lokasi").val(data.lokasi).prop('selected', true);
               $("#U_jenis").val(data.jenis);
           });
 
@@ -174,7 +175,7 @@
               $("#U_nama").val(data.nama);
               $("#U_stok").val(data.stok);
               $("#U_satuan").val(data.satuan);
-              $("#U_lokasi").val(data.lokasi);
+              $("#U_lokasi").val(data.lokasi).prop('selected', true);
               $("#U_jenis").val(data.jenis);
           });
 
@@ -193,5 +194,34 @@
           $(".modalDelete").attr("id", "M_D_padat-" + id);
           $("#M_D_padat-" + id).modal('show');
           $("#D_route").attr('action', "/data/padat/destroy/" + id);
+      })
+
+      $(document).on('click', '.U_B_laboratorium', function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalUpdate").attr("id", "M_U_laboratorium-" + id);
+          $("#M_U_laboratorium-" + id).modal('show');
+          $("#U_route").attr('action', "/setting/laboratorium/update/" + id);
+
+          $.get("/setting/laboratorium/show/" + id, function(data) {
+              $("#U_nama").val(data.nama);
+              $("#U_lokasi").val(data.lokasi);
+          });
+
+          $("#U_stok").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+
+      $(".D_B_laboratorium").click(function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalDelete").attr("id", "M_D_laboratorium-" + id);
+          $("#M_D_laboratorium-" + id).modal('show');
+          $("#D_route").attr('action', "/setting/laboratorium/destroy/" + id);
       })
   </script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kerusakan;
+use App\Models\Laboratorium;
 use Illuminate\Http\Request;
 
 class KerusakanController extends Controller
@@ -10,10 +11,7 @@ class KerusakanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
+    public function index() {}
 
     /**
      * Show the form for creating a new resource.
@@ -62,9 +60,9 @@ class KerusakanController extends Controller
     {
         Kerusakan::where('id', $id)->update([
             'nama' => $request->nama,
-            'stok' => $request->stok,
             'lokasi' => $request->lokasi,
-            'jenis' => $request->jenis,
+            'kondisi' => $request->kondisi,
+            'status' => $request->status,
         ]);
 
         return redirect()->back()->with('success', 'Laporan berhasil diperbarui');

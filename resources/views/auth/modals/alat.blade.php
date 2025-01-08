@@ -49,12 +49,9 @@
                                     <label class="form-label" for="lokasi">Lokasi<span class="text-danger">*</span></label>
                                     <select class="form-select" id="lokasi" name="lokasi" required>
                                         <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                        <option value="Lab. Bahan Alam">Lab. Bahan Alam</option>
-                                        <option value="Lab. Batra">Lab. Batra</option>
-                                        <option value="Lab. Kimia">Lab. Kimia</option>
-                                        <option value="Lab. Kimia Analis">Lab. Kimia Analis</option>
-                                        <option value="Lab. Kimia Farmasi">Lab. Kimia Farmasi</option>
-                                        <option value="Lab. Teknologi Sediaan Farmasi">Lab. Teknologi Sediaan Farmasi</option>
+                                        @foreach ($laboratoriums as $laboratorium)
+                                            <option value="{{ $laboratorium->nama }}">{{ $laboratorium->nama }}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -96,7 +93,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Edit alat</h5>
+                <h5 class="modal-title">Edit Alat</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -124,12 +121,9 @@
                                 <label class="form-label" for="U_lokasi">Lokasi<span class="text-danger">*</span></label>
                                 <select class="form-select" id="U_lokasi" name="lokasi" required>
                                     <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                    <option value="Lab. Bahan Alam">Lab. Bahan Alam</option>
-                                    <option value="Lab. Batra">Lab. Batra</option>
-                                    <option value="Lab. Kimia">Lab. Kimia</option>
-                                    <option value="Lab. Kimia Analis">Lab. Kimia Analis</option>
-                                    <option value="Lab. Kimia Farmasi">Lab. Kimia Farmasi</option>
-                                    <option value="Lab. Teknologi Sediaan Farmasi">Lab. Teknologi Sediaan Farmasi</option>
+                                    @foreach ($laboratoriums as $laboratorium)
+                                        <option value="{{ $laboratorium->nama }}">{{ $laboratorium->nama }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <div class="mb-3">

@@ -1,11 +1,10 @@
 <?php
 
-use App\Models\Kerusakan;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AlatController;
 use App\Http\Controllers\DepoController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\KerusakanController;
+use App\Http\Controllers\LaboratoriumController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PersediaanController;
 
@@ -31,6 +30,7 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::get('/data/kerusakan', [DepoController::class, 'kerusakan'])->name('kerusakan');
     Route::get('/data/mahasiswa', [DepoController::class, 'mahasiswa'])->name('mahasiswa');
     Route::get('/data/padat', [DepoController::class, 'padat'])->name('padat');
+    Route::get('/setting/laboratorium', [DepoController::class, 'laboratorium'])->name('laboratorium');
     Route::get('/logout', [DepoController::class, 'logout'])->name('logout');
 
     Route::get('/data/mahasiswa/show/{nim}', [MahasiswaController::class, 'show'])->name('mahasiswa_show');
@@ -61,6 +61,13 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::post('/data/padat/import', [PersediaanController::class, 'import'])->name('persediaan_import');
     Route::put('/data/padat/update/{id}', [PersediaanController::class, 'update'])->name('padat_update');
     Route::delete('/data/padat/destroy/{id}', [PersediaanController::class, 'destroy'])->name('padat_destroy');
+
+    Route::get('/setting/laboratorium/all', [LaboratoriumController::class, 'index']);
+    Route::get('/setting/laboratorium/show/{id}', [LaboratoriumController::class, 'show'])->name('laboratorium_show');
+    Route::post('/setting/laboratorium/store', [LaboratoriumController::class, 'store'])->name('laboratorium_store');
+    Route::put('/setting/laboratorium/update/{id}', [LaboratoriumController::class, 'update'])->name('laboratorium_update');
+    Route::delete('/setting/laboratorium/destroy/{id}', [LaboratoriumController::class, 'destroy'])->name('laboratorium_destroy');
+
 
     Route::get('/afk', function () {
         return response()->json(['status' => 'active']);
