@@ -19,7 +19,7 @@
                             <input type="text" class="form-control" id="lapor_alat" name="nama" placeholder="Lampu Spektro T60 D2" required />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="lokasi">Lokasi<span class="text-danger">*</span></label>
+                            <label class="form-label" for="lokasi">Laboratorium<span class="text-danger">*</span></label>
                             <select class="form-select" id="lokasi" name="lokasi" required>
                                 <option value="" class="text-muted" selected disabled>-- Pilih --</option>
                                 @foreach ($laboratoriums as $laboratorium)
@@ -71,7 +71,7 @@
                             <input type="text" class="form-control" id="U_nama" name="nama" placeholder="Lampu Spektro T60 D2" required />
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="U_lokasi">Lokasi<span class="text-danger">*</span></label>
+                            <label class="form-label" for="U_lokasi">Laboratorium<span class="text-danger">*</span></label>
                             <select class="form-select" id="U_lokasi" name="lokasi" required>
                                 <option value="" class="text-muted" selected disabled>-- Pilih --</option>
                                 @foreach ($laboratoriums as $laboratorium)
