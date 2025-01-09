@@ -8,6 +8,7 @@ use App\Http\Controllers\KerusakanController;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PersediaanController;
 use App\Http\Controllers\LaboratoriumController;
+use App\Http\Controllers\LokasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::get('/data/kerusakan', [DepoController::class, 'kerusakan'])->name('kerusakan');
     Route::get('/data/mahasiswa', [DepoController::class, 'mahasiswa'])->name('mahasiswa');
     Route::get('/data/padat', [DepoController::class, 'padat'])->name('padat');
+    Route::get('/setting/lokasi', [DepoController::class, 'lokasi'])->name('lokasi');
     Route::get('/setting/laboratorium', [DepoController::class, 'laboratorium'])->name('laboratorium');
     Route::get('/setting/satuan', [DepoController::class, 'satuan'])->name('satuan');
     Route::get('/logout', [DepoController::class, 'logout'])->name('logout');
@@ -70,13 +72,17 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::put('/setting/laboratorium/update/{id}', [LaboratoriumController::class, 'update'])->name('laboratorium_update');
     Route::delete('/setting/laboratorium/destroy/{id}', [LaboratoriumController::class, 'destroy'])->name('laboratorium_destroy');
 
+    Route::get('/setting/lokasi/all', [LokasiController::class, 'index']);
+    Route::get('/setting/lokasi/show/{id}', [LokasiController::class, 'show'])->name('lokasi_show');
+    Route::post('/setting/lokasi/store', [LokasiController::class, 'store'])->name('lokasi_store');
+    Route::put('/setting/lokasi/update/{id}', [LokasiController::class, 'update'])->name('lokasi_update');
+    Route::delete('/setting/lokasi/destroy/{id}', [LokasiController::class, 'destroy'])->name('lokasi_destroy');
+
     Route::get('/setting/satuan/all', [SatuanController::class, 'index']);
     Route::get('/setting/satuan/show/{id}', [SatuanController::class, 'show'])->name('satuan_show');
     Route::post('/setting/satuan/store', [SatuanController::class, 'store'])->name('satuan_store');
     Route::put('/setting/satuan/update/{id}', [SatuanController::class, 'update'])->name('satuan_update');
     Route::delete('/setting/satuan/destroy/{id}', [SatuanController::class, 'destroy'])->name('satuan_destroy');
-
-
 
     Route::get('/afk', function () {
         return response()->json(['status' => 'active']);

@@ -25,7 +25,7 @@
                                             <tr>
                                                 <th data-priority="1">Nama Alat</th>
                                                 <th data-priority="3">Stok</th>
-                                                <th>Lokasi</th>
+                                                <th>Laboratorium</th>
                                                 <th class="col-auto" data-priority="2">Aksi</th>
                                             </tr>
                                         </thead>

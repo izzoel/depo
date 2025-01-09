@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Lokasi;
 use App\Models\Satuan;
 use App\Models\Kerusakan;
 use App\Models\Mahasiswa;
@@ -12,14 +13,18 @@ use Illuminate\Support\Facades\Auth;
 
 class DepoController extends Controller
 {
-    protected $persediaans;
     protected $laboratoriums;
+    protected $lokasis;
+    protected $persediaans;
+    protected $satuans;
 
     public function __construct(Request $request)
     {
         $jenis = $request->segment(2);
         $this->persediaans = Persediaan::where('jenis', $jenis)->get();
         $this->laboratoriums = Laboratorium::all();
+        $this->lokasis = Lokasi::all();
+        $this->satuans = Satuan::all();
     }
 
     /**
@@ -34,19 +39,22 @@ class DepoController extends Controller
     {
         $persediaans = $this->persediaans;
         $laboratoriums = $this->laboratoriums;
-        return view('auth.pages.alat', compact('persediaans', 'laboratoriums'));
+        $satuans = $this->satuans->where('jenis', 'alat');
+        return view('auth.pages.alat', compact('persediaans', 'laboratoriums', 'satuans'));
     }
     public function cair()
     {
         $persediaans = $this->persediaans;
-        $laboratoriums = $this->laboratoriums;
-        return view('auth.pages.cair', compact('persediaans', 'laboratoriums'));
+        $lokasis = $this->lokasis;
+        $satuans = $this->satuans->where('jenis', 'cair');
+        return view('auth.pages.cair', compact('persediaans', 'lokasis', 'satuans'));
     }
     public function padat()
     {
         $persediaans = $this->persediaans;
-        $laboratoriums = $this->laboratoriums;
-        return view('auth.pages.padat', compact('persediaans', 'laboratoriums'));
+        $lokasis = $this->lokasis;
+        $satuans = $this->satuans->where('jenis', 'padat');
+        return view('auth.pages.padat', compact('persediaans', 'lokasis', 'satuans'));
     }
     public function kerusakan()
     {
@@ -59,6 +67,11 @@ class DepoController extends Controller
         $mahasiswas = Mahasiswa::all();
         return view('auth.pages.mahasiswa', compact('mahasiswas'));
     }
+    public function lokasi()
+    {
+        $lokasis = Lokasi::all();
+        return view('auth.pages.lokasi', compact('lokasis'));
+    }
     public function laboratorium()
     {
         $laboratoriums = Laboratorium::all();
@@ -66,8 +79,8 @@ class DepoController extends Controller
     }
     public function satuan()
     {
-        $satuan = Satuan::all();
-        return view('auth.pages.satuan', compact('satuan'));
+        $satuans = Satuan::all();
+        return view('auth.pages.satuan', compact('satuans'));
     }
 
 

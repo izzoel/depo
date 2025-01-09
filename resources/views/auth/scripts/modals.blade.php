@@ -225,6 +225,35 @@
           $("#D_route").attr('action', "/setting/laboratorium/destroy/" + id);
       })
 
+      $(document).on('click', '.U_B_lokasi', function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalUpdate").attr("id", "M_U_lokasi-" + id);
+          $("#M_U_lokasi-" + id).modal('show');
+          $("#U_route").attr('action', "/setting/lokasi/update/" + id);
+
+          $.get("/setting/lokasi/show/" + id, function(data) {
+              $("#U_nama").val(data.nama);
+              $("#U_jenis").val(data.jenis);
+          });
+
+          $("#U_stok").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+
+      $(".D_B_lokasi").click(function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalDelete").attr("id", "M_D_lokasi-" + id);
+          $("#M_D_lokasi-" + id).modal('show');
+          $("#D_route").attr('action', "/setting/lokasi/destroy/" + id);
+      })
+
       $(document).on('click', '.U_B_satuan', function() {
           let id = $(this).data("id").split('-').pop();
 
