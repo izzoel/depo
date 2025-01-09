@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Satuan;
 use App\Models\Kerusakan;
 use App\Models\Mahasiswa;
 use App\Models\Persediaan;
@@ -62,6 +63,11 @@ class DepoController extends Controller
     {
         $laboratoriums = Laboratorium::all();
         return view('auth.pages.laboratorium', compact('laboratoriums'));
+    }
+    public function satuan()
+    {
+        $satuan = Satuan::all();
+        return view('auth.pages.satuan', compact('satuan'));
     }
 
 

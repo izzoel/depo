@@ -224,4 +224,33 @@
           $("#M_D_laboratorium-" + id).modal('show');
           $("#D_route").attr('action', "/setting/laboratorium/destroy/" + id);
       })
+
+      $(document).on('click', '.U_B_satuan', function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalUpdate").attr("id", "M_U_satuan-" + id);
+          $("#M_U_satuan-" + id).modal('show');
+          $("#U_route").attr('action', "/setting/satuan/update/" + id);
+
+          $.get("/setting/satuan/show/" + id, function(data) {
+              $("#U_nama").val(data.nama);
+              $("#U_jenis").val(data.jenis);
+          });
+
+          $("#U_stok").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+
+      $(".D_B_satuan").click(function() {
+          let id = $(this).data("id").split('-').pop();
+
+          $(".modalDelete").attr("id", "M_D_satuan-" + id);
+          $("#M_D_satuan-" + id).modal('show');
+          $("#D_route").attr('action', "/setting/satuan/destroy/" + id);
+      })
   </script>

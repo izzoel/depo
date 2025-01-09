@@ -112,7 +112,7 @@
              </a>
          </li>
          <li class="menu-item {{ request()->routeIs('satuan') ? 'active' : '' }}">
-             <a href="javascript:void(0);" class="menu-link">
+             <a href="{{ route('satuan') }}" class="menu-link">
                  <i class='menu-icon bx bx-purchase-tag-alt'></i>
                  <div data-i18n="Settings">Satuan</div>
              </a>
