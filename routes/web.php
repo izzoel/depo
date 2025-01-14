@@ -52,6 +52,8 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::post('/data/alat/store', [PersediaanController::class, 'store'])->name('alat_store');
     Route::post('/data/alat/import', [PersediaanController::class, 'import'])->name('persediaan_import');
     Route::put('/data/alat/update/{id}', [PersediaanController::class, 'update'])->name('alat_update');
+    Route::put('/data/alat/ambil/{id}', [PersediaanController::class, 'ambil'])->name('alat_ambil');
+    Route::put('/data/alat/kembali/{id}', [PersediaanController::class, 'kembali'])->name('alat_kembali');
     Route::delete('/data/alat/destroy/{id}', [PersediaanController::class, 'destroy'])->name('alat_destroy');
 
     Route::get('/data/cair/show/{id}', [PersediaanController::class, 'show'])->name('cair_show');

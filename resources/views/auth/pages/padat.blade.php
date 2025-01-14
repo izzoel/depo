@@ -21,6 +21,7 @@
                                                 <button type="button" class="btn btn-primary">
                                                     Bahan Padat
                                                 </button>
+                                                @include('auth.modals.persediaan')
                                             @endguest
                                         </li>
                                     </ul>
@@ -29,12 +30,15 @@
                                     <table id="depoPadat" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th data-priority="1">Nama Bahan</th>
+                                                <th data-priority="2">Nama Bahan</th>
                                                 <th data-priority="3">Stok</th>
                                                 <th>Lokasi</th>
                                                 @auth
-                                                    <th class="col-auto" data-priority="2">Aksi</th>
+                                                    <th class="col-auto" data-priority="1">Aksi</th>
                                                 @endauth
+                                                @guest
+                                                    <th class="col" data-priority="1">Aksi</th>
+                                                @endguest
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -56,6 +60,19 @@
                                                             </a>
                                                         </td>
                                                     @endauth
+                                                    @guest
+                                                        <td class="text-center px-0">
+                                                            <a type="button" class="U_A_alat text-primary" data-id="#M_A_alat-{{ $persediaan->id }}">
+                                                                <span class="tf-icons bx bxs-archive-out"></span> Ambil
+                                                            </a>
+
+                                                            <span class="mx-1">|</span>
+
+                                                            <a type="button" class="U_K_alat text-danger" data-id="M_K_alat-{{ $persediaan->id }}">
+                                                                <span class="tf-icons bx bxs-archive-in"></span> Kembali
+                                                            </a>
+                                                        </td>
+                                                    @endguest
                                                 </tr>
                                             @endforeach
                                         </tbody>

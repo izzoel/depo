@@ -91,6 +91,30 @@ class PersediaanController extends Controller
 
         return redirect()->back()->with('success', $pesan);
     }
+    public function ambil(Request $request, Persediaan $persediaan, $id)
+    {
+        $persediaan = Persediaan::find($id);
+
+        $pesan = ucfirst($persediaan->nama) . " berhasil diambil";
+        $stok = $persediaan->stok - $request->ambil;
+        $persediaan->update([
+            'stok' => $stok
+        ]);
+
+        return redirect()->back()->with('success', $pesan);
+    }
+    public function kembali(Request $request, Persediaan $persediaan, $id)
+    {
+        $persediaan = Persediaan::find($id);
+
+        $pesan = ucfirst($persediaan->nama) . " berhasil dikembalikan";
+        $stok = $persediaan->stok + $request->kembali;
+        $persediaan->update([
+            'stok' => $stok
+        ]);
+
+        return redirect()->back()->with('success', $pesan);
+    }
 
     /**
      * Remove the specified resource from storage.

@@ -2,7 +2,6 @@
     @include('auth.toasts.success')
 @endif
 
-
 <div class="modal fade" id="M_S_alat" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

@@ -103,6 +103,48 @@
               }
           });
       });
+      $(document).on('click', '.U_A_alat', function() {
+          let id = $(this).data("id").split('-').pop();
+          $(".modalAmbil").attr("id", "M_A_alat-" + id);
+          $("#M_A_alat-" + id).modal('show');
+          $("#A_route").attr('action', "/data/alat/ambil/" + id);
+
+          $.get("/data/alat/show/" + id, function(data) {
+              $("#A_nama").val(data.nama);
+              $("#A_stok").val(data.stok);
+              $("#A_lokasi").val(data.lokasi).prop('selected', true);
+              $("#A_satuan").text(data.satuan);
+          });
+
+          $("#A_ambil").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
+      $(document).on('click', '.U_K_alat', function() {
+          let id = $(this).data("id").split('-').pop();
+          $(".modalKembali").attr("id", "M_K_alat-" + id);
+          $("#M_K_alat-" + id).modal('show');
+          $("#K_route").attr('action', "/data/alat/kembali/" + id);
+
+          $.get("/data/alat/show/" + id, function(data) {
+              $("#K_nama").val(data.nama);
+              $("#K_stok").val(data.stok);
+              $("#K_lokasi").val(data.lokasi).prop('selected', true);
+              $("#K_satuan").text(data.satuan);
+          });
+
+          $("#K_kembali").on('input', function() {
+              var value = $(this).val();
+
+              if (!$.isNumeric(value)) {
+                  $(this).val(value.replace(/[^0-9]/g, ''));
+              }
+          });
+      });
 
       $(".D_B_alat").click(function() {
           let id = $(this).data("id").split('-').pop();
