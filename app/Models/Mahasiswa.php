@@ -27,6 +27,7 @@ class Mahasiswa extends Authenticatable
         'no_hp',
         'status',
         'alamat',
+        'foto',
     ];
 
     /**

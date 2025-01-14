@@ -14,9 +14,7 @@
                                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#M_S_kerusakan">
                                                 Kerusakan Alat
                                             </button>
-
                                             @include('auth.modals.kerusakan')
-
                                         </li>
                                     </ul>
                                 </div>
@@ -24,11 +22,13 @@
                                     <table id="kerusakan" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                         <thead>
                                             <tr>
-                                                <th>Nama Alat</th>
+                                                <th data-priority="1">Nama Alat</th>
                                                 <th>Lokasi</th>
                                                 <th>Kondisi</th>
                                                 <th>Status</th>
-                                                <th class="col-auto">Aksi</th>
+                                                @auth
+                                                    <th class="col-auto" data-priority="2">Aksi</th>
+                                                @endauth
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -43,17 +43,19 @@
                                                             {{ $kerusakan->status }}
                                                         </span>
                                                     </td>
-                                                    <td class="text-center px-0">
-                                                        <a type="button" class="U_B_kerusakan text-info" data-id="#M_U_kerusakan-{{ $kerusakan->id }}">
-                                                            <span class="tf-icons bx bx-edit"></span>edit
-                                                        </a>
+                                                    @auth
+                                                        <td class="text-center px-0">
+                                                            <a type="button" class="U_B_kerusakan text-info" data-id="#M_U_kerusakan-{{ $kerusakan->id }}">
+                                                                <span class="tf-icons bx bx-edit"></span>edit
+                                                            </a>
 
-                                                        <span class="mx-1">|</span>
+                                                            <span class="mx-1">|</span>
 
-                                                        <a type="button" class="D_B_kerusakan text-danger" data-id="M_D_kerusakan-{{ $kerusakan->id }}">
-                                                            <span class="tf-icons bx bxs-x-square"></span>
-                                                        </a>
-                                                    </td>
+                                                            <a type="button" class="D_B_kerusakan text-danger" data-id="M_D_kerusakan-{{ $kerusakan->id }}">
+                                                                <span class="tf-icons bx bxs-x-square"></span>
+                                                            </a>
+                                                        </td>
+                                                    @endauth
                                                 </tr>
                                             @endforeach
 

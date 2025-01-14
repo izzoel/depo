@@ -30,6 +30,7 @@
 
 @include('auth.scripts.datatables')
 @include('auth.scripts.toasts')
+@include('auth.scripts.modals')
 
 <script>
     $('#importForm').on('submit', function() {
@@ -80,4 +81,23 @@
 
     // Periksa setiap 1 menit (60000 ms)
     setInterval(checkInactivity, 60000 * 10);
+</script>
+<script>
+    $(document).ready(function() {
+        $('#upload').change(function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#uploadedAvatar').attr('src', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        $('.account-image-reset').click(function() {
+            $('#uploadedAvatar').attr('src', '');
+            $('#upload').val('');
+        });
+    });
 </script>

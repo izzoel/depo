@@ -31,18 +31,23 @@
                             <label class="form-label" for="kondisi">Kondisi</label><span class="text-danger">*</span></label>
                             <textarea class="form-control" id="kondisi" name="kondisi" rows="2" placeholder="masa pakai sudah hampir habis"></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label" for="status">Status<span class="text-danger">*</span></label>
-                            <select class="form-select" id="status" name="status" required>
-                                <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                <option value="Pembelian">Pembelian</option>
-                                <option value="Pengajuan">Pengajuan</option>
-                                <option value="Peninjauan">Peninjauan</option>
-                                <option value="Perbaikan">Perbaikan</option>
-                                <option value="Rusak Total">Rusak Total</option>
-                                <option value="Selesai">Selesai</option>
-                            </select>
-                        </div>
+                        @auth
+                            <div class="mb-3">
+                                <label class="form-label" for="status">Status<span class="text-danger">*</span></label>
+                                <select class="form-select" id="status" name="status" required>
+                                    <option value="" class="text-muted" selected disabled>-- Pilih --</option>
+                                    <option value="Pembelian">Pembelian</option>
+                                    <option value="Pengajuan">Pengajuan</option>
+                                    <option value="Peninjauan">Peninjauan</option>
+                                    <option value="Perbaikan">Perbaikan</option>
+                                    <option value="Rusak Total">Rusak Total</option>
+                                    <option value="Selesai">Selesai</option>
+                                </select>
+                            </div>
+                        @endauth
+                        @guest
+                            <input type="hidden" value="Pengajuan" name="status">
+                        @endguest
                         <div class="d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>

@@ -126,7 +126,7 @@
     </div>
 
     @include('auth.layout.footer')
-    @include('auth.scripts.modals')
+
 </body>
 
 </html>

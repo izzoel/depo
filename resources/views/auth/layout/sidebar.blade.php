@@ -92,35 +92,39 @@
                          <div data-i18n="Without menu">Kerusakan Alat</div>
                      </a>
                  </li>
-                 <li class="menu-item {{ request()->routeIs('mahasiswa') ? 'active' : '' }}">
-                     <a href="{{ route('mahasiswa') }}" class="menu-link">
-                         <div data-i18n="Without menu">Mahasiswa</div>
-                     </a>
-                 </li>
+                 @auth
+                     <li class="menu-item {{ request()->routeIs('mahasiswa') ? 'active' : '' }}">
+                         <a href="{{ route('mahasiswa') }}" class="menu-link">
+                             <div data-i18n="Without menu">Mahasiswa</div>
+                         </a>
+                     </li>
+                 @endauth
              </ul>
 
          </li>
 
-         <!-- Settings -->
-         <li class="menu-header small text-uppercase">
-             <span class="menu-header-text">Setting</span>
-         </li>
-         <li class="menu-item {{ request()->routeIs('laboratorium') ? 'active' : '' }}">
-             <a href="{{ route('laboratorium') }}" class="menu-link">
-                 <i class="menu-icon tf-icons bx bx-building"></i>
-                 <div data-i18n="Settings">Laboratorium</div>
-             </a>
-         </li>
-         <li class="menu-item {{ request()->routeIs('lokasi') ? 'active' : '' }}">
-             <a href="{{ route('lokasi') }}" class="menu-link">
-                 <i class='menu-icon bx bx-exit'></i>
-                 <div data-i18n="Settings">Lokasi</div>
-             </a>
-         </li>
-         <li class="menu-item {{ request()->routeIs('satuan') ? 'active' : '' }}">
-             <a href="{{ route('satuan') }}" class="menu-link">
-                 <i class='menu-icon bx bx-purchase-tag-alt'></i>
-                 <div data-i18n="Settings">Satuan</div>
-             </a>
-         </li>
+         @auth
+             <!-- Settings -->
+             <li class="menu-header small text-uppercase">
+                 <span class="menu-header-text">Setting</span>
+             </li>
+             <li class="menu-item {{ request()->routeIs('laboratorium') ? 'active' : '' }}">
+                 <a href="{{ route('laboratorium') }}" class="menu-link">
+                     <i class="menu-icon tf-icons bx bx-building"></i>
+                     <div data-i18n="Settings">Laboratorium</div>
+                 </a>
+             </li>
+             <li class="menu-item {{ request()->routeIs('lokasi') ? 'active' : '' }}">
+                 <a href="{{ route('lokasi') }}" class="menu-link">
+                     <i class='menu-icon bx bx-exit'></i>
+                     <div data-i18n="Settings">Lokasi</div>
+                 </a>
+             </li>
+             <li class="menu-item {{ request()->routeIs('satuan') ? 'active' : '' }}">
+                 <a href="{{ route('satuan') }}" class="menu-link">
+                     <i class='menu-icon bx bx-purchase-tag-alt'></i>
+                     <div data-i18n="Settings">Satuan</div>
+                 </a>
+             </li>
+         @endauth
  </aside>

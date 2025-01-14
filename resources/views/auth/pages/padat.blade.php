@@ -11,11 +11,17 @@
                                 <div class="card-title">
                                     <ul class="nav nav-pills" role="tablist">
                                         <li class="nav-item">
-                                            <button type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#M_S_padat">
-                                                Bahan Padat
-                                            </button>
-
-                                            @include('auth.modals.padat')
+                                            @auth
+                                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#M_S_padat">
+                                                    Bahan Padat
+                                                </button>
+                                                @include('auth.modals.padat')
+                                            @endauth
+                                            @guest
+                                                <button type="button" class="btn btn-primary">
+                                                    Bahan Padat
+                                                </button>
+                                            @endguest
                                         </li>
                                     </ul>
                                 </div>
@@ -26,7 +32,9 @@
                                                 <th data-priority="1">Nama Bahan</th>
                                                 <th data-priority="3">Stok</th>
                                                 <th>Lokasi</th>
-                                                <th class="col-auto" data-priority="2">Aksi</th>
+                                                @auth
+                                                    <th class="col-auto" data-priority="2">Aksi</th>
+                                                @endauth
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -35,17 +43,19 @@
                                                     <td>{{ $persediaan->nama }} </td>
                                                     <td>{{ $persediaan->stok . ' ' . $persediaan->satuan }}</td>
                                                     <td>{{ $persediaan->lokasi }}</td>
-                                                    <td class="text-center px-0">
-                                                        <a type="button" class="U_B_padat text-info" data-id="#M_U_padat-{{ $persediaan->id }}">
-                                                            <span class="tf-icons bx bx-edit"></span>edit
-                                                        </a>
+                                                    @auth
+                                                        <td class="text-center px-0">
+                                                            <a type="button" class="U_B_padat text-info" data-id="#M_U_padat-{{ $persediaan->id }}">
+                                                                <span class="tf-icons bx bx-edit"></span>edit
+                                                            </a>
 
-                                                        <span class="mx-1">|</span>
+                                                            <span class="mx-1">|</span>
 
-                                                        <a type="button" class="D_B_padat text-danger" data-id="M_D_padat-{{ $persediaan->id }}">
-                                                            <span class="tf-icons bx bxs-x-square"></span>
-                                                        </a>
-                                                    </td>
+                                                            <a type="button" class="D_B_padat text-danger" data-id="M_D_padat-{{ $persediaan->id }}">
+                                                                <span class="tf-icons bx bxs-x-square"></span>
+                                                            </a>
+                                                        </td>
+                                                    @endauth
                                                 </tr>
                                             @endforeach
                                         </tbody>

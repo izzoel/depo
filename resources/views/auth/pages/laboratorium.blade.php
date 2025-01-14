@@ -11,7 +11,7 @@
                                 <div class="card-title">
                                     <ul class="nav nav-pills" role="tablist">
                                         <li class="nav-item">
-                                            <button type="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#M_S_laboratorium">
+                                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#M_S_laboratorium">
                                                 Laboratorium
                                             </button>
 

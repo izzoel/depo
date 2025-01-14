@@ -84,6 +84,10 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::put('/setting/satuan/update/{id}', [SatuanController::class, 'update'])->name('satuan_update');
     Route::delete('/setting/satuan/destroy/{id}', [SatuanController::class, 'destroy'])->name('satuan_destroy');
 
+    Route::get('/setting/profil/{role}/{id?}', [MahasiswaController::class, 'profil'])->name('profil');
+    Route::get('/setting/profil/biodata', [MahasiswaController::class, 'biodata'])->name('biodata');
+    Route::get('/setting/profil/password/{role}/{id?}', [MahasiswaController::class, 'password'])->name('password');
+
     Route::get('/afk', function () {
         return response()->json(['status' => 'active']);
     })->middleware('inactivity.logout');

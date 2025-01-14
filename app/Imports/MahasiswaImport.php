@@ -20,6 +20,8 @@ class MahasiswaImport implements ToModel
         if (Mahasiswa::where('nim', $row[0])->exists()) {
             return null; // Jangan impor jika NIM sudah ada
         }
+        $i = rand(0, 11);
+
 
         return new Mahasiswa([
             'nim' => $row[0],
@@ -29,6 +31,7 @@ class MahasiswaImport implements ToModel
             'kelamin' => $row[3],
             'tanggal_lahir' => Carbon::createFromFormat('d/m/Y', $row[4])->format('Y-m-d'),
             'prodi' => $row[5],
+            'foto' => asset('img/avatars/' . $i . '.png')
         ]);
     }
 }

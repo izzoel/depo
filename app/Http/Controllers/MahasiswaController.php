@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use App\Imports\MahasiswaImport;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -83,6 +85,71 @@ class MahasiswaController extends Controller
         ]);
 
         return redirect()->back()->with('success', 'Mahasiswa berhasil diperbarui');
+    }
+
+
+    public function profil(Request $request, $role, $id)
+    {
+        if ($role == 'admin') {
+            $profiles = User::where('id', $id)->get();
+        } else {
+            $profiles = Mahasiswa::where('nim', $id)->get();
+        }
+
+        // return view('auth.pages.profil', compact('mahasiswas'));
+        return view('auth.pages.profil', compact('profiles'));
+    }
+
+    public function password(Request $request, $role, $id)
+    {
+        if ($role == 'admin') {
+            $id = Auth::guard()->user()->id;
+            $admin = User::where('id', $id)->get();
+            $password = $admin[0]->password;
+
+            if (Hash::check($request->password_lama, $password)) {
+                if ($request->password_baru == $request->password_konfirmasi) {
+                    User::where('id', $id)->update([
+                        'password' => Hash::make($request->password_baru)
+                    ]);
+                    return redirect()->back()->with('success', 'Password berhasil diperbarui!');
+                } else {
+                    return redirect()->back()->with('fail', 'Password tidak sama!');
+                }
+            } else {
+                return redirect()->back()->with('fail', 'Password lama salah!');
+            }
+        } else {
+            $nim = Auth::guard('mahasiswa')->user()->nim;
+
+            $mahasiswas = Mahasiswa::where('nim', $nim)->get();
+            $password = $mahasiswas[0]->password;
+
+            if (Hash::check($request->password_lama, $password)) {
+                if ($request->password_baru == $request->password_konfirmasi) {
+                    Mahasiswa::where('nim', $nim)->update([
+                        'password' => Hash::make($request->password_baru)
+                    ]);
+                    return redirect()->back()->with('success', 'Password berhasil diperbarui!');
+                } else {
+                    return redirect()->back()->with('fail', 'Password tidak sama!');
+                }
+            } else {
+                return redirect()->back()->with('fail', 'Password lama salah!');
+            }
+        }
+    }
+
+    public function biodata(Request $request)
+    {
+        $nim = Auth::guard('mahasiswa')->user()->nim;
+
+        Mahasiswa::where('nim', $nim)->update([
+            'no_hp' => $request->no_hp,
+            'alamat' => $request->alamat
+        ]);
+
+        return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
     }
 
     /**
