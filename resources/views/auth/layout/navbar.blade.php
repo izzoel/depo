@@ -64,7 +64,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="{{ route('riwayat') }}">
                             <i class="bx bx-credit-card me-2"></i>
                             <span class="align-middle">Riwayat</span>
                             <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>

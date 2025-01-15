@@ -47,4 +47,18 @@ class Mahasiswa extends Authenticatable
     protected $casts = [
         'password' => 'hashed',
     ];
+
+    /** 
+     * The primary key associated with the table. 
+     * 
+     * @var string 
+     */
+    protected $primaryKey = 'nim';
+
+    /** 
+     * The "type" of the primary key. 
+     * 
+     * @var string 
+     */
+    protected $keyType = 'string';
 }

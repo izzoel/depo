@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Riwayat;
 use App\Models\Persediaan;
 use Illuminate\Http\Request;
 use App\Imports\PersediaanImport;
+use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
 class PersediaanController extends Controller
@@ -97,9 +99,33 @@ class PersediaanController extends Controller
 
         $pesan = ucfirst($persediaan->nama) . " berhasil diambil";
         $stok = $persediaan->stok - $request->ambil;
+
         $persediaan->update([
             'stok' => $stok
         ]);
+
+        $riwayat = Riwayat::where('id_persediaan', $id)
+            ->where('keperluan', session('keperluan'))
+            ->whereDate('tanggal', '>=', now()->startOfDay())
+            ->whereDate('tanggal', '<=', now()->endOfDay())
+            ->get();
+
+        if ($riwayat->isEmpty()) {
+            Riwayat::create([
+                'id_persediaan' => $id,
+                'id_mahasiswa' => Auth::guard('mahasiswa')->user()->nim,
+                'ambil' => $request->ambil,
+                'tanggal' => now(),
+                'keperluan' => session('keperluan')
+            ]);
+        } else {
+            $update = [
+                'ambil' => $riwayat->pluck('ambil')->first() + $request->ambil,
+                'tanggal' => now()
+            ];
+            Riwayat::where('id_mahasiswa', Auth::guard('mahasiswa')->user()->nim)->where('id_persediaan', $id)
+                ->where('keperluan', $riwayat->pluck('keperluan')->first())->update($update);
+        }
 
         return redirect()->back()->with('success', $pesan);
     }
@@ -112,6 +138,29 @@ class PersediaanController extends Controller
         $persediaan->update([
             'stok' => $stok
         ]);
+
+        $riwayat = Riwayat::where('id_persediaan', $id)
+            ->where('keperluan', session('keperluan'))
+            ->whereDate('tanggal', '>=', now()->startOfDay())
+            ->whereDate('tanggal', '<=', now()->endOfDay())
+            ->get();
+
+        if ($riwayat->isEmpty()) {
+            Riwayat::create([
+                'id_persediaan' => $id,
+                'id_mahasiswa' => Auth::guard('mahasiswa')->user()->nim,
+                'kembali' => $request->kembali,
+                'tanggal' => now(),
+                'keperluan' => session('keperluan')
+            ]);
+        } else {
+            $update = [
+                'kembali' => $riwayat->pluck('kembali')->first() + $request->kembali,
+                'tanggal' => now()
+            ];
+            Riwayat::where('id_mahasiswa', Auth::guard('mahasiswa')->user()->nim)->where('id_persediaan', $id)
+                ->where('keperluan', $riwayat->pluck('keperluan')->first())->update($update);
+        }
 
         return redirect()->back()->with('success', $pesan);
     }

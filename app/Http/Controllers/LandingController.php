@@ -24,6 +24,7 @@ class LandingController extends Controller
     public function logbook(Request $request)
     {
         $credentials = $request->only('nim', 'password');
+        session()->put('keperluan', $request->keperluan);
         if (Auth::guard('mahasiswa')->attempt($credentials)) {
             return response()->json(['success' => true, 'message' => 'Sukses']);
         } else {

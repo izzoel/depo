@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Lokasi;
 use App\Models\Satuan;
+use App\Models\Riwayat;
 use App\Models\Kerusakan;
 use App\Models\Mahasiswa;
 use App\Models\Persediaan;
@@ -56,6 +57,18 @@ class DepoController extends Controller
         $satuans = $this->satuans->where('jenis', 'padat');
         return view('auth.pages.padat', compact('persediaans', 'lokasis', 'satuans'));
     }
+
+    public function riwayat()
+    {
+        if (Auth::guard()->check()) {
+            $riwayats = Riwayat::all();
+        } else {
+            $riwayats = Riwayat::where('id_mahasiswa', Auth::guard('mahasiswa')->user()->nim)->get();
+        }
+
+        return view('auth.pages.riwayat', compact('riwayats'));
+    }
+
     public function kerusakan()
     {
         $kerusakans = Kerusakan::all();

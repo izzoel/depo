@@ -35,6 +35,7 @@ Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::get('/setting/lokasi', [DepoController::class, 'lokasi'])->name('lokasi');
     Route::get('/setting/laboratorium', [DepoController::class, 'laboratorium'])->name('laboratorium');
     Route::get('/setting/satuan', [DepoController::class, 'satuan'])->name('satuan');
+    Route::get('/riwayat', [DepoController::class, 'riwayat'])->name('riwayat');
     Route::get('/logout', [DepoController::class, 'logout'])->name('logout');
 
     Route::get('/data/mahasiswa/show/{nim}', [MahasiswaController::class, 'show'])->name('mahasiswa_show');
