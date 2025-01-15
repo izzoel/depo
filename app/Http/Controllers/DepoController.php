@@ -64,6 +64,10 @@ class DepoController extends Controller
             $riwayats = Riwayat::all();
         } else {
             $riwayats = Riwayat::where('id_mahasiswa', Auth::guard('mahasiswa')->user()->nim)->get();
+            $notifikasi = Mahasiswa::find(Auth::guard('mahasiswa')->user()->nim);
+            $notifikasi->update([
+                'status' => '0',
+            ]);
         }
 
         return view('auth.pages.riwayat', compact('riwayats'));

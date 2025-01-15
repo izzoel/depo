@@ -31,7 +31,10 @@
                                                 <th>Ambil</th>
                                                 <th>Kembali</th>
                                                 <th class="col-1">Tanggal</th>
-                                                <th class="col-1" data-priority="2">Aksi</th>
+                                                <th>Keperluan</th>
+                                                @auth
+                                                    <th class="col-1" data-priority="2">Aksi</th>
+                                                @endauth
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -45,17 +48,20 @@
                                                     <td class="text-center">{{ $riwayat->ambil }}</td>
                                                     <td class="text-center">{{ $riwayat->kembali }}</td>
                                                     <td class="text-center px-1">{{ date('d-m-Y -- H:i:s', strtotime($riwayat->tanggal)) }}</td>
-                                                    <td class="text-center px-2">
-                                                        <a type="button" class="U_B_satuan text-info" data-id="#M_U_riwayat-">
-                                                            <span class="tf-icons bx bx-edit"></span>edit
-                                                        </a>
+                                                    <td class="text-center">{{ $riwayat->keperluan }}</td>
+                                                    @auth
+                                                        <td class="text-center px-2">
+                                                            <a type="button" class="U_B_satuan text-info" data-id="#M_U_riwayat-">
+                                                                <span class="tf-icons bx bx-edit"></span>edit
+                                                            </a>
 
-                                                        <span class="mx-1">|</span>
+                                                            <span class="mx-1">|</span>
 
-                                                        <a type="button" class="D_B_satuan text-danger" data-id="M_D_riwayat-">
-                                                            <span class="tf-icons bx bxs-x-square"></span>
-                                                        </a>
-                                                    </td>
+                                                            <a type="button" class="D_B_satuan text-danger" data-id="M_D_riwayat-">
+                                                                <span class="tf-icons bx bxs-x-square"></span>
+                                                            </a>
+                                                        </td>
+                                                    @endauth
                                                 </tr>
                                             @endforeach
                                         </tbody>

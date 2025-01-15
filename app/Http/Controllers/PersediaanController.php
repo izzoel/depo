@@ -6,6 +6,7 @@ use App\Models\Riwayat;
 use App\Models\Persediaan;
 use Illuminate\Http\Request;
 use App\Imports\PersediaanImport;
+use App\Models\Mahasiswa;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -127,6 +128,11 @@ class PersediaanController extends Controller
                 ->where('keperluan', $riwayat->pluck('keperluan')->first())->update($update);
         }
 
+        $notifikasi = Mahasiswa::find(Auth::guard('mahasiswa')->user()->nim);
+        $notifikasi->update([
+            'status' => $notifikasi->status + 1,
+        ]);
+
         return redirect()->back()->with('success', $pesan);
     }
     public function kembali(Request $request, Persediaan $persediaan, $id)
@@ -161,6 +167,11 @@ class PersediaanController extends Controller
             Riwayat::where('id_mahasiswa', Auth::guard('mahasiswa')->user()->nim)->where('id_persediaan', $id)
                 ->where('keperluan', $riwayat->pluck('keperluan')->first())->update($update);
         }
+        $notifikasi = Mahasiswa::find(Auth::guard('mahasiswa')->user()->nim);
+        $notifikasi->update([
+            'status' => $notifikasi->status + 1,
+        ]);
+
 
         return redirect()->back()->with('success', $pesan);
     }
