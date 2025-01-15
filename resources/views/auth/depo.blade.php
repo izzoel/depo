@@ -89,7 +89,7 @@
     <div class="layout-overlay layout-menu-toggle"></div>
     </div>
     <!-- / Layout wrapper -->
-
+    {{-- 
     <div class="buy-now">
         <button type="button" class="btn btn-danger btn-buy-now" data-bs-toggle="modal" data-bs-target="#betaModal">Beta v2.0</button>
 
@@ -140,7 +140,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     @include('auth.layout.footer')
 
