@@ -27,15 +27,9 @@
                                 <label class="form-label" for="A_lokasi">Laboratorium</label>
                                 <select class="form-select" id="A_lokasi" name="lokasi" disabled>
                                     <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                    @if (request()->segment(2) == 'alat')
-                                        @foreach ($laboratoriums as $laboratorium)
-                                            <option value="{{ $laboratorium->nama }}">{{ $laboratorium->nama }}</option>
-                                        @endforeach
-                                    @else
-                                        @foreach ($lokasis as $lokasi)
-                                            <option value="{{ $lokasi->lokasi }}">{{ $lokasi->lokasi }}</option>
-                                        @endforeach
-                                    @endif
+                                    @foreach ($lokasis as $lokasi)
+                                        <option value="{{ $lokasi->lokasi }}">{{ $lokasi->lokasi }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <label class="form-label" for="A_ambil">Ambil<span class="text-danger">*</span></label>
@@ -79,15 +73,9 @@
                                 <label class="form-label" for="K_lokasi">Laboratorium</label>
                                 <select class="form-select" id="K_lokasi" name="lokasi" disabled>
                                     <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                    @if (request()->segment(2) == 'alat')
-                                        @foreach ($laboratoriums as $laboratorium)
-                                            <option value="{{ $laboratorium->nama }}">{{ $laboratorium->nama }}</option>
-                                        @endforeach
-                                    @else
-                                        @foreach ($lokasis as $lokasi)
-                                            <option value="{{ $lokasi->lokasi }}">{{ $lokasi->lokasi }}</option>
-                                        @endforeach
-                                    @endif
+                                    @foreach ($lokasis as $lokasi)
+                                        <option value="{{ $lokasi->lokasi }}">{{ $lokasi->lokasi }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             <label class="form-label" for="K_kembali">Kembali<span class="text-danger">*</span></label>

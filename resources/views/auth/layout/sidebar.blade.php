@@ -66,44 +66,41 @@
              <span class="menu-header-text">Menu Utama</span>
          </li>
          <!-- Menu Utama -->
-         <li class="menu-item {{ request()->segment(1) == 'data' ? 'active open' : '' }}">
-             <a href="javascript:void(0);" class="menu-link menu-toggle">
-                 <i class="menu-icon tf-icons bx bx-server"></i>
-                 <div data-i18n="Layouts">Data</div>
+
+         <li class="menu-item {{ request()->routeIs('alat') ? 'active' : '' }}">
+             <a href="{{ route('alat') }}" class="menu-link">
+                 <i class='menu-icon tf-icons bx bx-test-tube'></i>
+                 <div data-i18n="Bahan">Alat</div>
              </a>
-             <ul class="menu-sub">
-                 <li class="menu-item {{ request()->routeIs('alat') ? 'active' : '' }}">
-                     <a href="{{ route('alat') }}" class="menu-link">
-                         <div data-i18n="Without menu">Alat</div>
-                     </a>
-                 </li>
-                 <li class="menu-item {{ request()->routeIs('cair') ? 'active' : '' }}">
-                     <a href="{{ route('cair') }}" class="menu-link">
-                         <div data-i18n="Without menu">Bahan Cair</div>
-                     </a>
-                 </li>
-                 <li class="menu-item {{ request()->routeIs('padat') ? 'active' : '' }}">
-                     <a href="{{ route('padat') }}" class="menu-link">
-                         <div data-i18n="Without menu">Bahan Padat</div>
-                     </a>
-                 </li>
-                 <li class="menu-item {{ request()->routeIs('kerusakan') ? 'active' : '' }}">
-                     <a href="{{ route('kerusakan') }}" class="menu-link">
-                         <div data-i18n="Without menu">Kerusakan Alat</div>
-                     </a>
-                 </li>
-                 @auth
-                     <li class="menu-item {{ request()->routeIs('mahasiswa') ? 'active' : '' }}">
-                         <a href="{{ route('mahasiswa') }}" class="menu-link">
-                             <div data-i18n="Without menu">Mahasiswa</div>
-                         </a>
-                     </li>
-                 @endauth
-             </ul>
-
          </li>
-
+         <li class="menu-item {{ request()->routeIs('cair') ? 'active' : '' }}">
+             <a href="{{ route('cair') }}" class="menu-link">
+                 <i class='menu-icon tf-icons bx bx-water'></i>
+                 <div data-i18n="Bahan">Cair</div>
+             </a>
+         </li>
+         <li class="menu-item {{ request()->routeIs('padat') ? 'active' : '' }}">
+             <a href="{{ route('padat') }}" class="menu-link">
+                 <i class='menu-icon tf-icons bx bx-hive'></i>
+                 <div data-i18n="Bahan">Padat</div>
+             </a>
+         </li>
          @auth
+             <li class="menu-header small text-uppercase">
+                 <span class="menu-header-text">Database</span>
+             </li>
+             <li class="menu-item {{ request()->routeIs('kerusakan') ? 'active' : '' }}">
+                 <a href="{{ route('kerusakan') }}" class="menu-link">
+                     <i class='menu-icon tf-icons bx bx-error-alt'></i>
+                     <div data-i18n="Without menu">Kerusakan Alat</div>
+                 </a>
+             </li>
+             <li class="menu-item {{ request()->routeIs('mahasiswa') ? 'active' : '' }}">
+                 <a href="{{ route('mahasiswa') }}" class="menu-link">
+                     <i class='menu-icon tf-icons bx bx-user'></i>
+                     <div data-i18n="Bahan">Mahasiswa</div>
+                 </a>
+             </li>
              <!-- Settings -->
              <li class="menu-header small text-uppercase">
                  <span class="menu-header-text">Setting</span>

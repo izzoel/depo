@@ -27,6 +27,7 @@ Route::any('/logbook', [LandingController::class, 'logbook'])->name('logbook');
 
 Route::middleware(['auth.or.mahasiswa'])->group(function () {
     Route::get('/depo', [DepoController::class, 'index'])->name('depo');
+    Route::get('/depo/chart', [DepoController::class, 'chart'])->name('chart');
     Route::get('/data/alat', [DepoController::class, 'alat'])->name('alat');
     Route::get('/data/cair', [DepoController::class, 'cair'])->name('cair');
     Route::get('/data/kerusakan', [DepoController::class, 'kerusakan'])->name('kerusakan');

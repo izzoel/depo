@@ -33,15 +33,107 @@ class DepoController extends Controller
      */
     public function index()
     {
-        return view('auth.depo');
+        $persediaans = Persediaan::all();
+        $total_persediaan = $persediaans->count();
+
+        $riwayats = Riwayat::all();
+
+        $total_alat = $persediaans->where('jenis', 'alat')->count();
+        $total_cair = $persediaans->where('jenis', 'cair')->count();
+        $total_padat = $persediaans->where('jenis', 'padat')->count();
+
+        $alat = $persediaans->where('jenis', 'alat')
+            ->sortByDesc('stok')
+            ->take(2)
+            ->pluck('nama')
+            ->toArray();
+        $cair = $persediaans->where('jenis', 'cair')
+            ->sortByDesc('stok')
+            ->take(2)
+            ->pluck('nama')
+            ->toArray();
+        $padat = $persediaans->where('jenis', 'padat')
+            ->sortByDesc('stok')
+            ->take(2)
+            ->pluck('nama')
+            ->toArray();
+        $total_riwayat_ambil = $riwayats->filter(function ($item) {
+            return !empty($item->ambil);
+        })->count();
+        $total_riwayat_kembali = $riwayats->filter(function ($item) {
+            return !empty($item->kembali);
+        })->count();
+
+        $statistik = [
+            'total_persediaan' => $total_persediaan,
+            'total_alat' => $total_alat,
+            'total_cair' => $total_cair,
+            'total_padat' => $total_padat,
+            'alat' => $alat,
+            'cair' => $cair,
+            'padat' => $padat,
+            'total_riwayat_ambil' => $total_riwayat_ambil,
+            'total_riwayat_kembali' => $total_riwayat_kembali
+        ];
+
+        return view('auth.pages.depo', compact('statistik'));
+    }
+    public function chart()
+    {
+        $persediaans = Persediaan::all();
+        $total_persediaan = $persediaans->count();
+
+        $riwayats = Riwayat::all();
+
+
+        $total_alat = $persediaans->where('jenis', 'alat')->count();
+        $total_cair = $persediaans->where('jenis', 'cair')->count();
+        $total_padat = $persediaans->where('jenis', 'padat')->count();
+
+        $alat = $persediaans->where('jenis', 'alat')
+            ->sortByDesc('stok')
+            ->take(2)
+            ->pluck('nama')
+            ->toArray();
+        $cair = $persediaans->where('jenis', 'cair')
+            ->sortByDesc('stok')
+            ->take(2)
+            ->pluck('nama')
+            ->toArray();
+        $padat = $persediaans->where('jenis', 'padat')
+            ->sortByDesc('stok')
+            ->take(2)
+            ->pluck('nama')
+            ->toArray();
+
+        $total_riwayat_ambil = $riwayats->filter(function ($item) {
+            return !empty($item->ambil);
+        })->count();
+        $total_riwayat_kembali = $riwayats->filter(function ($item) {
+            return !empty($item->kembali);
+        })->count();
+
+        $statistik = [
+            'total_persediaan' => $total_persediaan,
+            'total_alat' => $total_alat,
+            'total_cair' => $total_cair,
+            'total_padat' => $total_padat,
+            'alat' => $alat,
+            'cair' => $cair,
+            'padat' => $padat,
+            'total_riwayat_ambil' => $total_riwayat_ambil,
+            'total_riwayat_kembali' => $total_riwayat_kembali
+        ];
+
+        return response()->json($statistik);
     }
 
     public function alat()
     {
         $persediaans = $this->persediaans;
-        $laboratoriums = $this->laboratoriums;
+        $lokasis = $this->lokasis;
         $satuans = $this->satuans->where('jenis', 'alat');
-        return view('auth.pages.alat', compact('persediaans', 'laboratoriums', 'satuans'));
+        return view('auth.pages.alat', compact('persediaans', 'lokasis', 'satuans'));
     }
     public function cair()
     {

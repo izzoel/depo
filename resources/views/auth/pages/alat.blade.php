@@ -32,7 +32,7 @@
                                             <tr>
                                                 <th data-priority="2">Nama Alat</th>
                                                 <th data-priority="3">Stok</th>
-                                                <th>Laboratorium</th>
+                                                <th>Lokasi</th>
                                                 @auth
                                                     <th class="col-auto" data-priority="1">Aksi</th>
                                                 @endauth

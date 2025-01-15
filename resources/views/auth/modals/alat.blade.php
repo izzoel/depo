@@ -47,11 +47,11 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="lokasi">Laboratorium<span class="text-danger">*</span></label>
-                                    <select class="form-select" id="lokasi" name="lokasi" required>
+                                    <label class="form-label" for="U_lokasi">Lokasi<span class="text-danger">*</span></label>
+                                    <select class="form-select" id="U_lokasi" name="lokasi" required>
                                         <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                        @foreach ($laboratoriums as $laboratorium)
-                                            <option value="{{ $laboratorium->nama }}">{{ $laboratorium->nama }}</option>
+                                        @foreach ($lokasis as $lokasi)
+                                            <option value="{{ $lokasi->lokasi }}">{{ $lokasi->lokasi }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -121,11 +121,11 @@
                                 </select>
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="U_lokasi">Laboratorium<span class="text-danger">*</span></label>
+                                <label class="form-label" for="U_lokasi">Lokasi<span class="text-danger">*</span></label>
                                 <select class="form-select" id="U_lokasi" name="lokasi" required>
                                     <option value="" class="text-muted" selected disabled>-- Pilih --</option>
-                                    @foreach ($laboratoriums as $laboratorium)
-                                        <option value="{{ $laboratorium->nama }}">{{ $laboratorium->nama }}</option>
+                                    @foreach ($lokasis as $lokasi)
+                                        <option value="{{ $lokasi->lokasi }}">{{ $lokasi->lokasi }}</option>
                                     @endforeach
                                 </select>
                             </div>
