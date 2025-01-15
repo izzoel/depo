@@ -27,7 +27,7 @@
                                     </ul>
                                 </div>
                                 <div class="card-text">
-                                    <table id="depoCair" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                    <table id="depoCair" class="table table-striped table-bordered dt-responsive wrap" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th data-priority="2">Nama Bahan</th>

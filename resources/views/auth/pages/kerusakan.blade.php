@@ -19,7 +19,7 @@
                                     </ul>
                                 </div>
                                 <div class="card-text">
-                                    <table id="kerusakan" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                    <table id="kerusakan" class="table table-striped table-bordered dt-responsive wrap" style="width:100%">
                                         <thead>
                                             <tr>
                                                 <th data-priority="1">Nama Alat</th>
