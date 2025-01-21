@@ -27,9 +27,6 @@
   <link rel="stylesheet" href="{{ asset('vendor/sneat/libs/apex-charts/apex-charts.css') }}" />
 
   <!-- Datatables CSS -->
-  {{-- <link rel="stylesheet" href='{{ asset('vendor/datatables/datatables.net-bs/css/dataTables.bootstrap.min.css') }}'>
-  <link rel="stylesheet" href='{{ asset('vendor/datatables/datatables.net-responsive-bs/css/responsive.bootstrap.min.css') }}'>
-  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css"> --}}
   <link href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.1.8/b-3.2.0/b-html5-3.2.0/r-3.0.3/datatables.min.css" rel="stylesheet">
 
 

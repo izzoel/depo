@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/swiper/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/datatables/css/datatables.min.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('vendor/datatables/css/datatables.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2-bs5.min.css') }}">
 
