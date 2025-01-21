@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="{{ asset('vendor/glightbox/css/glightbox.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/swiper/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/boxicons/css/boxicons.min.css') }}">
-    {{-- <link rel="stylesheet" href="{{ asset('vendor/datatables/css/datatables.min.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/select2/css/select2-bs5.min.css') }}">
 
@@ -53,7 +52,6 @@
     <script src="{{ asset('vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('vendor/swiper/js/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('vendor/datatables/js/dataTables.min.js') }}"></script>
     <script src="{{ asset('vendor/typed.js/js/typed.umd.js') }}"></script>
     <script src="{{ asset('vendor/sweetalert2/js/sweetalert2.js') }}"></script>
     <script src="{{ asset('vendor/select2/js/select2.min.js') }}"></script>
