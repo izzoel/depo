@@ -71,7 +71,7 @@
                                     <span class="text-muted" style="font-size: .7rem; font-style: italic"> (data yang sama akan ditimpa)</span>
                                     <input class="form-control" type="file" id="file" name="file" />
                                 </div>
-                                <a href="{{ asset('Template Import -- Persediaan.csv') }}">
+                                <a href="{{ asset('Template Import -- Persediaan.csv') }}" download="Template Import -- Persediaan.csv">
                                     <i class="tf-icons bx bxs-download"></i>Template <span class="badge bg-label-danger">.csv</span>
                                 </a>
 
