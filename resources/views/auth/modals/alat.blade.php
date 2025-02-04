@@ -47,8 +47,8 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label class="form-label" for="U_lokasi">Lokasi<span class="text-danger">*</span></label>
-                                    <select class="form-select" id="U_lokasi" name="lokasi" required>
+                                    <label class="form-label" for="lokasi">Lokasi<span class="text-danger">*</span></label>
+                                    <select class="form-select" id="lokasi" name="lokasi" required>
                                         <option value="" class="text-muted" selected disabled>-- Pilih --</option>
                                         @foreach ($lokasis as $lokasi)
                                             <option value="{{ $lokasi->lokasi }}">{{ $lokasi->lokasi }}</option>
